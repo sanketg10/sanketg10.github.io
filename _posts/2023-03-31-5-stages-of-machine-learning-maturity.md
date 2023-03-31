@@ -148,14 +148,14 @@ Below is a diagram for building the taste profile of a user:
 
 **************
 This completes our tour of the 5 stages of Machine Learning maturity. As you go from one stage to next, more complex systems may be needed to support the use cases. Let's summarize what we have gone through today: 
-1. Batch Prediction, Batch Serving - Great for intermediate models whose predictions are used as features by downstream models. 
+1. **Batch Prediction, Batch Serving** - Great for intermediate models whose predictions are used as features by downstream models. 
 
-2. Batch Prediction, Online Serving - Great when predictions don't need real time or near real time features and can be done offline - just need online serving using low-latency reads.
+2. **Batch Prediction, Online Serving** - Great when predictions don't need real time or near real time features and can be done offline - just need online serving using low-latency reads.
 
-3. Online Prediction, Online Serving - Great when you don't have offline features and need online features to compute predictions. Also great when don't want to compute predictions for all users offline but rather only for active users. 
+3. **Online Prediction, Online Serving** - Great when you don't have offline features and need online features to compute predictions. Also great when don't want to compute predictions for all users offline but rather only for active users. 
 
-4. Online Prediction with NRT features, Online Serving - Great when you want online features but also NRT features which are features from last few min or hour. Needs low latency for online serving. 
+4. **Online Prediction with NRT features, Online Serving** - Great when you want online features but also NRT features which are features from last few min or hour. Needs low latency for online serving. 
 
-5. Finally, event driven prediction with NRT features, NRT serving - Great when low latency is not quite possible or not needed, and predictions can be done triggered via an event and served via NRT 
+5. Finally, **event driven prediction with NRT features, NRT serving** - Great when low latency is not quite possible or not needed, and predictions can be done triggered via an event and served via NRT 
 
 Thank you for reading! 
