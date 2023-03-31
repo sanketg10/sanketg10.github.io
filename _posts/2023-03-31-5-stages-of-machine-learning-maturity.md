@@ -5,8 +5,6 @@ categories: [blog, machine learning]
 tags: [mlops, machine learning deployments, chatgpt, NRT, streaming, real-time]
 ---
 
-# 5 Stages of Machine Learning Maturity
-
 
 You have worked hard on identifying a problem that can benefit from machine learning. you have spent hours on building the model. You have verified the metrics and double checked the confusion matrices. Things look great. What to do next? You want to get the model live! What's the best way to get the model into production so that it can be consumed by real users like you and me? 
 
@@ -84,7 +82,7 @@ In both stage 1 and stage 2, recommendations or predictions are generated offlin
 In this stage we move from batch pre-computed predictions to online predictions. Here we only run model inference at the time of actual online request. The key advantage of this is that we only need to run inference on users active on our platform and do not need to pre-compute predictions for everyone. 
 
 The main disadvantage is that we need to maintain a **low-latency system** to support this use case. 
-These predictions are served online in the request path. An example of such a system is predicting best size of the dress based on measurements. Users are expected to key-in their body measurements and the ML model returns the best size for a dress for different brands. 
+These predictions are served online in the request path. An example of such a system is predicting **best size of the dress based on measurements**. Users are expected to key-in their body measurements and the ML model returns the best size for a dress for different brands. 
 
 Why can't we do online prediction in batch? The reason is that we don't know the features before-hand. Body measurements are only available when a user logs into (say) Adidas or Nike store and is looking for immediate results on measurements. 
 
@@ -98,7 +96,7 @@ Diagram of how this stage might look:
 
 ## Stage 4: Online prediction with NRT features, online serving
 
-Continuing on, Stage 4 is an extension of Stage 3 as this stage now has NRT or Near Real Time features. Let's take example of predicting price of an Uber ride. 
+Continuing on, Stage 4 is an extension of Stage 3 as this stage now has NRT or Near Real Time features. Let's take example of **predicting price of an Uber ride**. 
 
 What are some examples of NRT features for predicting price of an Uber ride? 
 1. Number of riders in the last 30 min
@@ -129,7 +127,7 @@ The Stage 4 is the place where we are seeing a lot of growth and innovation happ
 
 ## Stage 5: Event driven prediction with NRT features, NRT serving
 
-This is the final stage in our journey of ML "nirvana". The main advantage of this stage is how it overcomes the challenge of Stage 3 and 4 - which is requirement on ***low latency***. Due to its event driven nature and NRT serving, it is able to get away without being hyper focussed on latency. There is a caveat - it's not applicable for all kinds of ML systems. Let's take an example - building taste profile of a user on Instagram. 
+This is the final stage in our journey of ML "nirvana". The main advantage of this stage is how it overcomes the challenge of Stage 3 and 4 - which is requirement on ***low latency***. Due to its event driven nature and NRT serving, it is able to get away without being hyper focussed on latency. There is a caveat - it's not applicable for all kinds of ML systems. Let's take an example - **building taste profile of a user** on Instagram. 
 
 **First, what is event driven prediction?**
 
