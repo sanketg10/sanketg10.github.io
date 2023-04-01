@@ -10,17 +10,15 @@ You have worked hard on identifying a problem that can benefit from machine lear
 The question is answered by Machine Learning deployments. ML Deployment takes a model and deploys it to say a server so that it can be served to real public. The mechanics of managing deployments is controlled by MLOps. MLOps or Machine Learning Operations is analogous term derived from DevOps. In DevOps you do everything to get a website running smoothly on servers running either on-prem or on a cloud provider. Likewise, in MLOps you do everything to to get a model running smoothly so that it can be of value to real users. 
 
 Let's take a few examples of real-life ML use-cases to help us understand the different stages of ML maturity:  
-1.  Transcribing a YouTube video (batch prediction, batch serving)
-2.  Recommending movies on Netflix (batch prediction, online serving)
-3.  Recommend best size of a dress based on measurements (online prediction, online serving)
-4.  Predicting price of an Uber ride (online prediction with Near Real time (NRT) features, online serving)
-5.  Building taste profile of a user (event driven prediction with NRT features, NRT serving)
+1.  Transcribing a YouTube video (**batch prediction, batch serving**)
+2.  Recommending movies on Netflix (**batch prediction, online serving**)
+3.  Recommend best size of a dress based on measurements (**online prediction, online serving**)
+4.  Predicting price of an Uber ride (**online prediction with Near Real time (NRT) features, online serving**)
+5.  Building taste profile of a user (**event driven prediction with NRT features, NRT serving**)
 
 Note: This blog has an oversimplification of the above systems and real-life systems are going to be much more complex and may not work as described. 
 
 To understand the 5 stages of Machine Learning deployments, it's important to go through the three steps of any machine learning model lifecycle. 
-
-&nbsp;
 
 ### Model Training
 Model training is at the heart of machine learning and is also a lot of fun! You might take labels of images and train a convolutional neural network to classify images into different categories (classification). Or you might do pricing of Uber rides (regression). Or you might cluster houses in your area into different groups (unsupervised clustering). All of these tasks need some form of training data - and you train a model to learn patterns from the data. 
@@ -29,13 +27,13 @@ With regards to MLOps discussion, model is a black box that takes in data as fea
 
 #### Features for model training
 In MLOps discussion, features for model training matter quite a lot more than model architecture itself. There are different kind of features that may be available to a model: 
-1. **Batch features**: These features may be things like aggregation of movies liked by a user or days since registration. These features are recomputed once say daily or monthly in batch jobs and don't change very quickly. Batch jobs typically run on Spark clusters if your data is large. These features are pre-computed. These features may need to served online for online model inference via fast-read features stores or caches (BigTable, Redis etc).
-2. **Near Real Time (NRT) features**: These features are more responsive than batch features and are available in "almost" real time. When do we need such features? Say you are predicting price of an Uber ride - you could use static features such as your country or registration date but you also need NRT features such as how many riders are in the area in last 30 min. You are willing to accept a delay or lag of 1 or 2 min. Another example of NRT feature is last 5 posts liked by a user on Instagram. You may have a batch feature such as total number of posts liked by a user, but you may want to supplement it with last 5 posts liked for more near real time signal. 
+1. **Batch features**: These features may be things like aggregation of movies liked by a user or days since registration. These features are recomputed once say **daily** or **monthly** in batch jobs and don't change very quickly. Batch jobs typically run on Spark clusters if your data is large. These features are pre-computed. These features may need to served online for online model inference via ***fast-read online features*** stores or caches (BigTable, Redis etc).
+
+2. **Near Real Time (NRT) features**: These features are more responsive than batch features and are available in "almost" real time. When do we need such features? Say you are predicting price of an Uber ride - you could use static features such as your country or registration date but you also need NRT features such as **how many riders are in the area in last 30 min**. You are willing to accept a delay or lag of 1 or 2 min. Another example of NRT feature is last 5 posts liked by a user on Instagram. You may have a batch feature such as total number of posts liked by a user, but you may want to supplement it with last 5 posts liked for more near real time signal. 
+
 3. **Real Time (RT) features**:  These features are in the request path. Example of such features are device, time of day, location, a person's measurements for fit etc. These features are only available when the user is making a request and cannot be precomputed. 
 
 This distinction will become important in our discussion of MLOps stages. 
-
-&nbsp;
 
 ### Model Prediction 
 
@@ -43,14 +41,10 @@ Model prediction or inference involves making predictions from actual data or he
 ```{"user_id": 14a1sd112325d1e45a, "movie_id": 23b4ab122sdga3ad1v, "similarity": 0.7123}``` 
 This stage allows the model to infer on features and create a prediction. 
 
-&nbsp;
-
 ### Predictions Serving
 This stage is the one that determines how'd the predictions actually get into the hands of users/ customers. For some models predictions are served right after model inference (say for predicting price of an Uber ride), but for some models it might make sense to infer first and serve the predictions at another time (movie recommendations on Netflix). 
 
 Now let's use these fundamental concepts to understand the various stages of MLOps. 
-
-&nbsp;
 
 ## Stage 1: Batch prediction, batch serving
 
