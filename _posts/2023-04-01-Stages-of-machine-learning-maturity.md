@@ -1,10 +1,9 @@
 ---
 title: The 5 Stages of Machine Learning Maturity
-date: 2023-03-31
+date: 2023-04-01
 categories: [blog, machine learning]
 tags: [mlops, machine learning deployments, chatgpt, NRT, streaming, real-time]
 ---
-
 
 You have worked hard on identifying a problem that can benefit from machine learning. you have spent hours on building the model. You have verified the metrics and double checked the confusion matrices. Things look great. What to do next? You want to get the model live! What's the best way to get the model into production so that it can be consumed by real users like you and me? 
 
