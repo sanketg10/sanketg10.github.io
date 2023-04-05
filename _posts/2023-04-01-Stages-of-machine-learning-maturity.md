@@ -7,6 +7,11 @@ tags: [mlops, machine learning deployments, chatgpt, NRT, streaming, real-time]
 
 You have worked hard on identifying a problem that can benefit from machine learning. you have spent hours on building the model. You have verified the metrics and double checked the confusion matrices. Things look great. What to do next? You want to get the model live! What's the best way to get the model into production so that it can be consumed by real users like you and me? 
 
+<figure>
+  <img src=https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3474&q=80 alt="my alt text"/>
+  <figcaption>Let's take a few examples to learn different stages of ML maturity!</figcaption>
+</figure>
+
 The question is answered by Machine Learning deployments. ML Deployment takes a model and deploys it to say a server so that it can be served to real public. The mechanics of managing deployments is controlled by MLOps. MLOps or Machine Learning Operations is analogous term derived from DevOps. In DevOps you do everything to get a website running smoothly on servers running either on-prem or on a cloud provider. Likewise, in MLOps you do everything to to get a model running smoothly so that it can be of value to real users. 
 
 Let's take a few examples of real-life ML use-cases to help us understand the different stages of ML maturity:  
@@ -14,7 +19,7 @@ Let's take a few examples of real-life ML use-cases to help us understand the di
 2.  Recommending movies on Netflix (**batch prediction, online serving**)
 3.  Recommend best size of a dress based on measurements (**online prediction, online serving**)
 4.  Predicting price of an Uber ride (**online prediction with Near Real time (NRT) features, online serving**)
-5.  Building taste profile of a user (**event driven prediction with NRT features, NRT serving**)
+
 
 Note: This blog has an oversimplification of the above systems and real-life systems are going to be much more complex and may not work as described. 
 
@@ -118,26 +123,6 @@ Finally, Real Time features such as location, time of day etc is gathered on the
 The Stage 4 is the place where we are seeing a lot of growth and innovation happening. Lot of companies are starting to use NRT features. In this post LinkedIn goes into details on how using NRT features increased their engagement and quality of recommendations. 
 
 
-## Stage 5: Event driven prediction with NRT features, NRT serving
-
-This is the final stage in our journey of ML "nirvana". The main advantage of this stage is how it overcomes the challenge of Stage 3 and 4 - which is requirement on ***low latency***. Due to its event driven nature and NRT serving, it is able to get away without being hyper focussed on latency. There is a caveat - it's not applicable for all kinds of ML systems. Let's take an example - **building taste profile of a user** on Instagram. 
-
-**First, what is event driven prediction?**
-
-Event driven prediction refers to a prediction which happens after an "event". So if a user likes a post on Instagram, it's an "event". This event can trigger our ML model to run a prediction to generate an output. This model can use all of the batch, RT and NRT features which we discussed in Stage 4. 
-
-**When is event driven prediction not a good idea?**
-
-Event driven prediction is good for cases when some delay is acceptable. Building a taste profile is a great example of this as we don't need to respond in real time to user's actions and can afford a few min delay in generating their profile. For Uber pricing models, event driven prediction is perhaps not a good idea as the user wants immediate response on the price for a trip. 
-
-**NRT Serving** 
-
-Near Real Time serving works hand-in-hand with the event driven predictions. As predictions happen, they are not served online but rather written to a topic which subscribers can subscribe to. These subscribers can be web services or downstream models. In our Instagram example, taste profiles can be used by Home feed to determine what to show you next. 
-
-Below is a diagram for building the taste profile of a user: 
-
-![event driven ML](https://i.postimg.cc/PxwrkBVC/Screen-Shot-2023-03-31-at-3-31-05-PM.png) 
-
 
 **************
 This completes our tour of the 5 stages of Machine Learning maturity. As you go from one stage to next, more complex systems may be needed to support the use cases. Let's summarize what we have gone through today: 
@@ -149,6 +134,10 @@ This completes our tour of the 5 stages of Machine Learning maturity. As you go 
 
 4. **Online Prediction with NRT features, Online Serving** - Great when you want online features but also NRT features which are features from last few min or hour. Needs low latency for online serving. 
 
-5. Finally, **event driven prediction with NRT features, NRT serving** - Great when low latency is not quite possible or not needed, and predictions can be done triggered via an event and served via NRT 
 
 Thank you for reading! 
+
+### References: 
+1. Running Feast in Production [link](https://docs.feast.dev/how-to-guides/running-feast-in-production)
+2. Chip Huyen's blog [post](https://huyenchip.com/2022/01/02/real-time-machine-learning-challenges-and-solutions.html) on Real time ML.
+3. LinkedIn [post](https://engineering.linkedin.com/blog/2022/near-real-time-features-for-near-real-time-personalization#### ) on near real time personalization
