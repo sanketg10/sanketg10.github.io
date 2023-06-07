@@ -7,10 +7,8 @@ tags: [mlops, machine learning deployments, chatgpt, NRT, streaming, real-time]
 
 You have worked hard on identifying a problem that can benefit from machine learning. you have spent hours on building the model. You have verified the metrics and double checked the confusion matrices. Things look great. What to do next? You want to get the model live! What's the best way to get the model into production so that it can be consumed by real users like you and me? 
 
-<figure>
-  <img src=https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3474&q=80 alt="my alt text"/>
-  <figcaption>Let's take a few examples to learn different stages of ML maturity!</figcaption>
-</figure>
+![caption](https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3474&q=80)
+
 
 The question is answered by Machine Learning deployments. ML Deployment takes a model and deploys it to say a server so that it can be served to real public. The mechanics of managing deployments is controlled by MLOps. MLOps or Machine Learning Operations is analogous term derived from DevOps. In DevOps you do everything to get a website running smoothly on servers running either on-prem or on a cloud provider. Likewise, in MLOps you do everything to to get a model running smoothly so that it can be of value to real users. 
 
